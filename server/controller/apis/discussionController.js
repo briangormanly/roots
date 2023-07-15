@@ -1,5 +1,5 @@
 /**
- * webapp-template - Your webapp
+ * roots - Your webapp
  * © 2023 Brian Gormanly
  *
  */
@@ -21,8 +21,8 @@ exports.getDiscussionByWorkspaceId = async ( req, res ) => {
         return errorController( ApiMessage.createNotFoundError( "Discussion" ), res );
     }
 
-    res.set( "x-webapp-template-message-title", "Success" );
-    res.set( "x-webapp-template-message-detail", "Returned discussion with comments" );
+    res.set( "x-roots-message-title", "Success" );
+    res.set( "x-roots-message-detail", "Returned discussion with comments" );
     res.status( 200 ).json( discussion );
 };
 
@@ -37,8 +37,8 @@ exports.getDiscussionByTopicId = async ( req, res ) => {
         return errorController( ApiMessage.createNotFoundError( "Discussion" ), res );
     }
     
-    res.set( "x-webapp-template-message-title", "Success" );
-    res.set( "x-webapp-template-message-detail", "Returned discussion with comments" );
+    res.set( "x-roots-message-title", "Success" );
+    res.set( "x-roots-message-detail", "Returned discussion with comments" );
     res.status( 200 ).json( discussion );
 };
 
@@ -54,8 +54,8 @@ exports.updateDiscussionByWorkspaceId = async ( req, res ) => {
         return errorController( ApiMessage.createNotFoundError( "Discussion" ), res );
     }
     
-    res.set( "x-webapp-template-message-title", "Success" );
-    res.set( "x-webapp-template-message-detail", "Updated discussion" );
+    res.set( "x-roots-message-title", "Success" );
+    res.set( "x-roots-message-detail", "Updated discussion" );
     res.status( 200 ).json( discussion );
 };
 
@@ -69,8 +69,8 @@ exports.updateDiscussionByTopicId = async ( req, res ) => {
         return errorController( ApiMessage.createNotFoundError( "Discussion" ), res );
     }
     
-    res.set( "x-webapp-template-message-title", "Success" );
-    res.set( "x-webapp-template-message-detail", "Updated discussion" );
+    res.set( "x-roots-message-title", "Success" );
+    res.set( "x-roots-message-detail", "Updated discussion" );
     res.status( 200 ).json( discussion );
 };
 
@@ -86,8 +86,8 @@ exports.createDiscussionByWorkspaceId = async ( req, res ) => {
         return errorController( ApiMessage.createNotFoundError( "Discussion" ), res );
     }
     
-    res.set( "x-webapp-template-message-title", "Success" );
-    res.set( "x-webapp-template-message-detail", "Created discussion" );
+    res.set( "x-roots-message-title", "Success" );
+    res.set( "x-roots-message-detail", "Created discussion" );
     res.status( 201 ).json( discussion );
 };
 
@@ -101,8 +101,8 @@ exports.createDiscussionByTopicId = async ( req, res ) => {
         return errorController( ApiMessage.createNotFoundError( "Discussion" ), res );
     }
     
-    res.set( "x-webapp-template-message-title", "Success" );
-    res.set( "x-webapp-template-message-detail", "Created discussion" );
+    res.set( "x-roots-message-title", "Success" );
+    res.set( "x-roots-message-detail", "Created discussion" );
     res.status( 201 ).json( discussion );
 };
 
@@ -116,8 +116,8 @@ exports.createComment = async ( req, res ) => {
         return errorController( ApiMessage.createInternalServerError(), res );
     }
     
-    res.set( "x-webapp-template-message-title", "Success" );
-    res.set( "x-webapp-template-message-detail", "Created comment" );
+    res.set( "x-roots-message-title", "Success" );
+    res.set( "x-roots-message-detail", "Created comment" );
     res.status( 200 ).json( comment );
 };
 
@@ -131,8 +131,8 @@ exports.editComment = async ( req, res ) => {
         return errorController( ApiMessage.createNotFoundError( "Comment" ), res );
     }
     
-    res.set( "x-webapp-template-message-title", "Success" );
-    res.set( "x-webapp-template-message-detail", "Edited comment" );
+    res.set( "x-roots-message-title", "Success" );
+    res.set( "x-roots-message-detail", "Edited comment" );
     res.status( 200 ).json( comment );
 };
 
@@ -147,8 +147,8 @@ exports.deleteComment = async ( req, res ) => {
     }
 
     
-    res.set( "x-webapp-template-message-title", "Success" );
-    res.set( "x-webapp-template-message-detail", "Deleted Comment" );
+    res.set( "x-roots-message-title", "Success" );
+    res.set( "x-roots-message-detail", "Deleted Comment" );
     res.status( 200 ).json( comment );
 };
 
@@ -165,8 +165,8 @@ exports.setRating = async ( req, res ) => {
         return errorController( ApiMessage.createNotFoundError( "Comment" ), res );
     }
 
-    res.set( "x-webapp-template-message-title", "Success" );
-    res.set( "x-webapp-template-message-detail", "Set Rating" );
+    res.set( "x-roots-message-title", "Success" );
+    res.set( "x-roots-message-detail", "Set Rating" );
     res.status( 200 ).json( rating );
 };
 
@@ -180,7 +180,7 @@ exports.removeRating = async ( req, res ) => {
         return errorController( ApiMessage.createNotFoundError( "Comment" ), res );
     }
 
-    res.set( "x-webapp-template-message-title", "Success" );
-    res.set( "x-webapp-template-message-detail", "Removed Rating" );
+    res.set( "x-roots-message-title", "Success" );
+    res.set( "x-roots-message-detail", "Removed Rating" );
     res.status( 200 ).json( rating );
 };

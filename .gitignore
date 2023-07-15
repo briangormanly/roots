@@ -80,7 +80,7 @@ web_modules/
 # images NEEDS TO BE REDONE when theming directories are set
 #client/public/assets/img/
 # client/public/assets/mail/
-# client/public/webapp-template/assets/topics/
+# client/public/roots/assets/topics/
 
 # client/public/codingcoach/assets/mail/
 # client/public/codingcoach/assets/topics/

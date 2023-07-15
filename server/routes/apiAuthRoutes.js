@@ -1,5 +1,5 @@
 /**
- * webapp-template - Your webapp
+ * roots - Your webapp
  * © 2023 Brian Gormanly
  *
  */
@@ -31,8 +31,8 @@ router.use( function ( req, res, next ) {
         // authentication token missing
         console.log( 'unauth' );
         const message = ApiMessage.createApiMessage( 401, "Unauthorized", "API requires authentication" );
-        res.set( "x-webapp-template-message-title", "Unauthorized" );
-        res.set( "x-webapp-template-message-detail", "API requires authentication" );
+        res.set( "x-roots-message-title", "Unauthorized" );
+        res.set( "x-roots-message-detail", "API requires authentication" );
         res.status( 401 ).json( message );
         
         
@@ -59,8 +59,8 @@ router.use( function ( req, res, next ) {
 
             }
             else {
-                res.set( "x-webapp-template-message-title", "Unauthorized" );
-                res.set( "x-webapp-template-message-detail", "API requires authentication" );
+                res.set( "x-roots-message-title", "Unauthorized" );
+                res.set( "x-roots-message-detail", "API requires authentication" );
                 res.status( 401 );
                 next( 'Authentication Failed!' );
             }
@@ -78,8 +78,8 @@ router.use( function ( req, res, next ) {
         // create the ApiMessage
         const apiRes = ApiMessage.createApiMessage( 401, "Unauthorized", "API requires authentication");
         
-        res.set("x-webapp-template-message-title", "Unauthorized");
-        res.set("x-webapp-template-message-detail", "API requires authentication");
+        res.set("x-roots-message-title", "Unauthorized");
+        res.set("x-roots-message-detail", "API requires authentication");
         res.status(401).json(apiRes);
         //res.send();
     }

@@ -1,7 +1,7 @@
 {
-  "name": "webapp-template",
+  "name": "roots",
   "version": "1.0.0",
-  "description": "webapp-template: build your app",
+  "description": "roots: build your app",
   "main": "server/app.js",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -40,17 +40,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/briangormanly/webapp-template.git"
+    "url": "git+https://github.com/briangormanly/roots.git"
   },
   "keywords": [
-    "webapp-template"
+    "roots"
   ],
   "author": "brian.gormanly",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/briangormanly/webapp-template/issues"
+    "url": "https://github.com/briangormanly/roots/issues"
   },
-  "homepage": "https://github.com/briangormanly/webapp-template#readme",
+  "homepage": "https://github.com/briangormanly/roots#readme",
   "devDependencies": {
     "eslint": "^8.25.0"
   }

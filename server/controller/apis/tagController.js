@@ -1,5 +1,5 @@
 /**
- * webapp-template - Your webapp
+ * roots - Your webapp
  * © 2023 Brian Gormanly
  *
  */
@@ -27,13 +27,13 @@ exports.getAllTags = async function ( req, res ) {
     let tags = await tagService.getAllTags( req.query.limit, req.query.offset );
 
     if( tags.length > 0 ) {
-        res.set( "x-webapp-template-message-title", "Success" );
-        res.set( "x-webapp-template-message-detail", "Returned all tags" );
+        res.set( "x-roots-message-title", "Success" );
+        res.set( "x-roots-message-detail", "Returned all tags" );
         res.status( 200 ).json( tags );
     }
     else {
-        res.set( "x-webapp-template-message-title", "Not Found" );
-        res.set( "x-webapp-template-message-detail", "No tags were found meeting the query criteria" );
+        res.set( "x-roots-message-title", "Not Found" );
+        res.set( "x-roots-message-detail", "No tags were found meeting the query criteria" );
         res.status( 404 ).send( "No Tags Found" );
     }
 };
@@ -42,13 +42,13 @@ exports.getTagById = async function( req, res ) {
     let tag = await tagService.getTagById( req.params.id );
 
     if( tag ) {
-        res.set( "x-webapp-template-message-title", "Success" );
-        res.set( "x-webapp-template-message-detail", "Returned tag" );
+        res.set( "x-roots-message-title", "Success" );
+        res.set( "x-roots-message-detail", "Returned tag" );
         res.status( 200 ).json( tag );
     }
     else {
-        res.set( "x-webapp-template-message-title", "Not Found" );
-        res.set( "x-webapp-template-message-detail", "No tags were found meeting the query criteria" );
+        res.set( "x-roots-message-title", "Not Found" );
+        res.set( "x-roots-message-detail", "No tags were found meeting the query criteria" );
         res.status( 404 ).send( "No Tags Found" );
     }
 };
@@ -57,13 +57,13 @@ exports.deleteTagById = async ( req, res ) => {
     let success = await tagService.deleteTagById( req.params.id );
 
     if( success ) {
-        res.set( "x-webapp-template-message-title", "Success" );
-        res.set( "x-webapp-template-message-detail", "Returned tag" );
+        res.set( "x-roots-message-title", "Success" );
+        res.set( "x-roots-message-detail", "Returned tag" );
         res.status( 200 ).json( "Success" );
     }
     else {
-        res.set( "x-webapp-template-message-title", "Not Found" );
-        res.set( "x-webapp-template-message-detail", "No tags were found meeting the query criteria" );
+        res.set( "x-roots-message-title", "Not Found" );
+        res.set( "x-roots-message-detail", "No tags were found meeting the query criteria" );
         res.status( 404 ).send( "No Tags Found" );
     }
 };
@@ -131,14 +131,14 @@ exports.saveTag = async function( req, res, redirect ) {
     else {
         if ( existingTagName ) {
             res.setHeader( 'Content-Type', 'application/json' );
-            res.set( "x-webapp-template-message-title", "Success" );
-            res.set( "x-webapp-template-message-detail", "Updated existing Tag by Tag name" );
+            res.set( "x-roots-message-title", "Success" );
+            res.set( "x-roots-message-detail", "Updated existing Tag by Tag name" );
             res.status( 200 ).send( JSON.stringify( tag ) );
         }
         else {
             res.setHeader( 'Content-Type', 'application/json' );
-            res.set( "x-webapp-template-message-title", "Success" );
-            res.set( "x-webapp-template-message-detail", "Created new tag" );
+            res.set( "x-roots-message-title", "Success" );
+            res.set( "x-roots-message-detail", "Created new tag" );
             res.status( 201 ).send( JSON.stringify( tag ) );
         }
     }
@@ -153,13 +153,13 @@ exports.getTaggedEntity = async function( req, res ) {
     }
 
     if( tags.length > 0 ) {
-        res.set( "x-webapp-template-message-title", "Success" );
-        res.set( "x-webapp-template-message-detail", "Returned all tags associated with requested entity" );
+        res.set( "x-roots-message-title", "Success" );
+        res.set( "x-roots-message-detail", "Returned all tags associated with requested entity" );
         res.status( 200 ).json( tags );
     }
     else {
-        res.set( "x-webapp-template-message-title", "Not Found" );
-        res.set( "x-webapp-template-message-detail", "No tags were found meeting the query criteria" );
+        res.set( "x-roots-message-title", "Not Found" );
+        res.set( "x-roots-message-detail", "No tags were found meeting the query criteria" );
         res.status( 404 ).send( "No Tags Found" );
     }
 };
@@ -248,14 +248,14 @@ exports.tagged = async ( req, res, redirect ) => {
     else {
         if ( existingTag ) {
             res.setHeader( 'Content-Type', 'application/json' );
-            res.set( "x-webapp-template-message-title", "Success" );
-            res.set( "x-webapp-template-message-detail", "Updated existing Tag by Tag name" );
+            res.set( "x-roots-message-title", "Success" );
+            res.set( "x-roots-message-detail", "Updated existing Tag by Tag name" );
             res.status( 200 ).send( JSON.stringify( tag ) );
         }
         else {
             res.setHeader( 'Content-Type', 'application/json' );
-            res.set( "x-webapp-template-message-title", "Success" );
-            res.set( "x-webapp-template-message-detail", "Created new tag" );
+            res.set( "x-roots-message-title", "Success" );
+            res.set( "x-roots-message-detail", "Created new tag" );
             res.status( 201 ).send( JSON.stringify( tag ) );
         }
     }
@@ -277,13 +277,13 @@ exports.deleteTagged = async function( req, res ) {
     }
 
     if( success ) {
-        res.set( "x-webapp-template-message-title", "Success" );
-        res.set( "x-webapp-template-message-detail", "Tag association deleted" );
+        res.set( "x-roots-message-title", "Success" );
+        res.set( "x-roots-message-detail", "Tag association deleted" );
         res.status( 200 ).send( "Tag association deleted" );
     }
     else {
-        res.set( "x-webapp-template-message-title", "Not Found" );
-        res.set( "x-webapp-template-message-detail", "No tags were found meeting the query criteria" );
+        res.set( "x-roots-message-title", "Not Found" );
+        res.set( "x-roots-message-detail", "No tags were found meeting the query criteria" );
         res.status( 404 ).send( "No Tags Found" );
     }
 };

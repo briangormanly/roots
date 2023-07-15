@@ -1,12 +1,12 @@
 @charset "UTF-8";
 /*
 
-webapp-template - Custom CSS
+roots - Custom CSS
 Modify this CSS file to create your own look and feel for your front end.
 
 old Masthead background: #414d53
 old green: #d9e8c8
-webapp-template colors:
+roots colors:
 Primary: #F39845
 Primary (light): #FFC895
 Primary (medium light): #FFB26A
@@ -62,7 +62,7 @@ Tetradic: #414d53, #4d4153, #535041
 */
 
 /**
-These are the colors used in the webapp-template.  You can modify these colors to give your site a unique color scheme.
+These are the colors used in the roots.  You can modify these colors to give your site a unique color scheme.
 */
 .bg-primary {
     background-color: #587792 !important;
@@ -120,7 +120,7 @@ These are the colors used in the webapp-template.  You can modify these colors t
 .tetradic3 {
     color: #535041;
 }
-.webapp-templateColor {
+.rootsColor {
     color: #f39945;
 }
 
@@ -128,11 +128,11 @@ These are the colors used in the webapp-template.  You can modify these colors t
     color: #d9534f;
 }
 
-.webapp-template-text-dark {
+.roots-text-dark {
     color: #414d53;
 }
 
-.webapp-template-text-light {
+.roots-text-light {
     color: #a9c6d4;
 }
 
@@ -146,36 +146,36 @@ These are the colors used in the webapp-template.  You can modify these colors t
 
 /* fonts */
 
-.webapp-template-font {
+.roots-font {
     font-family: 'Monaco' !important;
 }
-.webapp-template-font-light {
+.roots-font-light {
     font-family: 'Monaco' !important;
     color: #F6F6F6;
 }
-.webapp-template-font-1em {
+.roots-font-1em {
     font-family: 'Monaco' !important;
     font-size:1em !important
 }
-.webapp-template-font-1p5em {
+.roots-font-1p5em {
     font-family: 'Monaco' !important;
     font-size:1.5em !important
 }
-.webapp-template-font-2em {
+.roots-font-2em {
     font-family: 'Monaco' !important;
     font-size:2em !important
 }
-.webapp-template-font-3em {
+.roots-font-3em {
     font-family: 'Monaco' !important;
     font-size:3em !important
 }
   
-.webapp-template-font-large {
+.roots-font-large {
     font-family: 'Monaco' !important;
     font-size:4em !important
 }
 @media (min-width: 992px) {
-    .webapp-template-font-large {
+    .roots-font-large {
       font-family: 'Monaco' !important;
       font-size:5em !important
     }

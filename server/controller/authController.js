@@ -1,5 +1,5 @@
 /**
- * webapp-template - Your webapp
+ * roots - Your webapp
  * © 2023 Brian Gormanly
  *
  */
@@ -109,7 +109,7 @@ exports.googleSignIn = async function( req, res ) {
         else {
             req.session.messageType = "info";
             req.session.messageTitle = "User Account Not Found";
-            req.session.messageBody = "You are not currently registered with webapp-template. You can sign up either with your Google account by filling out the informtion in the form</a>";
+            req.session.messageBody = "You are not currently registered with roots. You can sign up either with your Google account by filling out the informtion in the form</a>";
             res.redirect( 303, '/dashboard' );
         }
         
@@ -275,7 +275,7 @@ exports.generateResetPasswordEmail = async function( req, res ) {
                         + "<strong><a href='" + siteUrl + "/resetPass/" + req.body.forgotPasswordEmail + "/" + token + "'>this link!</a></strong></p>"
                         + "<p>This link will expire in 24 hours!</p>"
                         + "<p>Carpe Diem!</p>"
-                        + "<p>The webapp-template Team</p>", // plain text body
+                        + "<p>The roots Team</p>", // plain text body
                 };
     
                 await transporter.sendMail( mailOptions, function( err, info ) {

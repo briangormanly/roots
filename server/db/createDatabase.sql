@@ -1,15 +1,15 @@
--- webapp_template base database setup
+-- rootsdb base database setup
 -- CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- setup (as root / postgres)
-drop database webapp_template;
-create database webapp_template;
-create user webapp_template with encrypted password 'webapp_template';
-grant all privileges on database webapp_template to webapp_template;
-grant connect on database webapp_template to webapp_template;
-GRANT ALL ON SCHEMA public TO webapp_template;
+drop database rootsdb;
+create database rootsdb;
+create user rootsdb with encrypted password 'rootsdb';
+grant all privileges on database rootsdb to rootsdb;
+grant connect on database rootsdb to rootsdb;
+GRANT ALL ON SCHEMA public TO rootsdb;
 
-\c webapp_template webapp_template
+\c rootsdb rootsdb
 
 -- table creation
 CREATE TABLE IF NOT EXISTS users (
@@ -31,8 +31,8 @@ CREATE TABLE IF NOT EXISTS users (
     create_time TIMESTAMP DEFAULT current_timestamp
 );
 
-GRANT ALL PRIVILEGES ON TABLE users TO webapp_template;
---GRANT USAGE, SELECT ON SEQUENCE users_user_id_seq TO webapp_template;
+GRANT ALL PRIVILEGES ON TABLE users TO rootsdb;
+--GRANT USAGE, SELECT ON SEQUENCE users_user_id_seq TO rootsdb;
 
 CREATE INDEX IF NOT EXISTS idx_users_username ON users (LOWER(username));
 CREATE INDEX IF NOT EXISTS idx_users_email ON users (LOWER(email));
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS session (
   CONSTRAINT "session_pkey" PRIMARY KEY ("sid")
 );
 
-GRANT ALL PRIVILEGES ON TABLE session TO webapp_template;
+GRANT ALL PRIVILEGES ON TABLE session TO rootsdb;
 CREATE INDEX IF NOT EXISTS "IDX_session_expire" ON session ("expire");
 
 
@@ -68,9 +68,9 @@ CREATE TABLE IF NOT EXISTS user_sessions (
 
 );
 
-GRANT ALL PRIVILEGES ON TABLE user_sessions TO webapp_template;
+GRANT ALL PRIVILEGES ON TABLE user_sessions TO rootsdb;
 CREATE INDEX IF NOT EXISTS idx_user_sessions_user_id ON user_sessions (user_id);
-GRANT USAGE, SELECT ON SEQUENCE user_sessions_user_session_id_seq TO webapp_template;
+GRANT USAGE, SELECT ON SEQUENCE user_sessions_user_session_id_seq TO rootsdb;
 
 
 CREATE TABLE IF NOT EXISTS roles (
@@ -81,8 +81,8 @@ CREATE TABLE IF NOT EXISTS roles (
     create_time TIMESTAMP DEFAULT current_timestamp
 );
 
-GRANT ALL PRIVILEGES ON TABLE roles TO webapp_template;
-GRANT USAGE, SELECT ON SEQUENCE roles_role_id_seq TO webapp_template;
+GRANT ALL PRIVILEGES ON TABLE roles TO rootsdb;
+GRANT USAGE, SELECT ON SEQUENCE roles_role_id_seq TO rootsdb;
 
 insert into roles (role_name, role_description, active) values ('Administrator', 'Administrator', true);
 insert into roles (role_name, role_description, active) values ('User', 'General authenticated access', true);
@@ -99,8 +99,8 @@ CREATE TABLE IF NOT EXISTS user_roles (
     create_time TIMESTAMP DEFAULT current_timestamp,
     end_time TIMESTAMP
 );
-GRANT ALL PRIVILEGES ON TABLE user_roles TO webapp_template;
-GRANT USAGE, SELECT ON SEQUENCE user_roles_user_role_id_seq TO webapp_template;
+GRANT ALL PRIVILEGES ON TABLE user_roles TO rootsdb;
+GRANT USAGE, SELECT ON SEQUENCE user_roles_user_role_id_seq TO rootsdb;
 
 CREATE INDEX IF NOT EXISTS idx_user_roles_user_id ON user_roles (user_id);
 CREATE INDEX IF NOT EXISTS idx_user_roles_role_id ON user_roles (role_id);
@@ -119,8 +119,8 @@ CREATE TABLE IF NOT EXISTS tags (
     owned_by uuid
 );
 
-GRANT ALL PRIVILEGES ON TABLE tags TO webapp_template;
-GRANT USAGE, SELECT ON SEQUENCE tags_tag_id_seq TO webapp_template;
+GRANT ALL PRIVILEGES ON TABLE tags TO rootsdb;
+GRANT USAGE, SELECT ON SEQUENCE tags_tag_id_seq TO rootsdb;
 CREATE INDEX IF NOT EXISTS idx_tags_tag ON tags (tag);
 
 CREATE TYPE tag_entity_types AS ENUM ('unknown', 'workspace', 'topic', 'resource', 'user');
@@ -152,7 +152,7 @@ CREATE TABLE IF NOT EXISTS discussions (
     CONSTRAINT discussion_parent PRIMARY KEY (parent_id, parent_type)
 );
 
-GRANT ALL PRIVILEGES ON TABLE discussions TO webapp_template;
+GRANT ALL PRIVILEGES ON TABLE discussions TO rootsdb;
 
 CREATE TABLE IF NOT EXISTS discussion_comments (
     discussion_comment_id SERIAL PRIMARY KEY,
@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS discussion_comments (
     user_id uuid
 );
 
-GRANT ALL PRIVILEGES ON TABLE discussion_comments TO webapp_template;
+GRANT ALL PRIVILEGES ON TABLE discussion_comments TO rootsdb;
 
 
 CREATE TABLE IF NOT EXISTS discussion_comment_ratings (
@@ -174,5 +174,5 @@ CREATE TABLE IF NOT EXISTS discussion_comment_ratings (
     CONSTRAINT user_rating PRIMARY KEY (discussion_comment_id, user_id)
 );
 
-GRANT ALL PRIVILEGES ON TABLE discussion_comment_ratings TO webapp_template;
+GRANT ALL PRIVILEGES ON TABLE discussion_comment_ratings TO rootsdb;
 

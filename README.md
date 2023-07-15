@@ -1,7 +1,7 @@
 ## To create ...
 
 
-webapp-template is 
+roots is 
 
 ## Installation  
 
@@ -12,13 +12,13 @@ webapp-template is
 
 ## Database setup
 * You can either run /server/db/CreateTablesScript-base-example.sql or create a copy and modify / comment out default data to your liking
->  psql -U postgres -f server/db/createTablesScript-base-example.sql (from the root directory of the project, default webapp-template password is 'webapp-template')
-* Run the script to create the database.  If you run the script with postgres / root user it will create a database and user named 'webapp-template', then connect to the new database and create the schema using the webapp-template user.
+>  psql -U postgres -f server/db/createTablesScript-base-example.sql (from the root directory of the project, default roots password is 'roots')
+* Run the script to create the database.  If you run the script with postgres / root user it will create a database and user named 'roots', then connect to the new database and create the schema using the roots user.
 
 ### Quick start setup
 1. After installing and configuring Node.js and Postgres clone this git repo
-> git clone https://github.com/briangormanly/webapp-template.git
-> cd webapp-template
+> git clone https://github.com/briangormanly/roots.git
+> cd roots
 2. *Make a copy of the .env.example file called .env in the project home directory* 
 3. In the .env file: 
     1. Note the FRONT_END_NAME in the future you can change this to use your own front end / Theme 
@@ -37,7 +37,7 @@ webapp-template is
 
 ----- output ------
 >
-> webapp-template running... {localhost:1986}
+> roots running... {localhost:1986}
 7. Navigate your web browser to http://localhost:PORT (default port is 1986) if you are running on your local machine.
 8. Nice!
 

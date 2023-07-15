@@ -1,5 +1,5 @@
 /**
- * webapp-template - Your webapp
+ * roots - Your webapp
  * © 2023 Brian Gormanly
  * BSD 3-Clause License
  * see included LICENSE or https://opensource.org/licenses/BSD-3-Clause
@@ -173,7 +173,7 @@ app.use( ( error, req, res, next ) => {
 
 app.listen( PORT, () =>
     console.log(
-        "webapp-template running... {" +
+        "roots running... {" +
       process.env.SITE_PROTOCOL +
       process.env.SITE_HOST +
       ":" +

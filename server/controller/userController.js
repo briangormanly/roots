@@ -137,7 +137,7 @@ const createUser = async function( email, username, firstName, lastName, passwor
                         + "<p>Thank you for taking a moment to verify your email. Doing so helps us ensure we maintain as spam free a community."
                         + "Complete the process by <strong><a href='" + siteUrl + "/verifyEmail/" + email + "/" + insertResult + "'>clicking this link!</a></strong></p>"
                         + "<p>Carpe Diem!</p>"
-                        + "<p>The webapp-template Team</p>", // plain text body
+                        + "<p>The roots Team</p>", // plain text body
                 };
 
                 transporter.sendMail( mailOptions, function( err, info ) {
@@ -175,7 +175,7 @@ const createUser = async function( email, username, firstName, lastName, passwor
             
         }
         else if( !insertResult ) {
-            res.render( 'user-signup', {error_message: "Email account already exists in webapp-template! (Perhaps you signed up using Google?)"} );
+            res.render( 'user-signup', {error_message: "Email account already exists in roots! (Perhaps you signed up using Google?)"} );
 
         }
         else {
@@ -260,7 +260,7 @@ exports.reValidateEmail = async function( req, res ) {
                     + "<p>Thank you for taking a moment to verify your email. Doing so helps us ensure we maintain as spam free a community."
                     + "Complete the process by <strong><a href='" + siteUrl + "/verifyEmail/" + req.session.authUser.email + "/" + newToken + "'>clicking this link!</a></strong></p>"
                     + "<p>Carpe Diem!</p>"
-                    + "<p>The webapp-template Team</p>", // plain text body
+                    + "<p>The roots Team</p>", // plain text body
             };
 
             transporter.sendMail( mailOptions, function( err, info ) {

@@ -1,5 +1,5 @@
 /**
- * webapp-template - Your webapp
+ * roots - Your webapp
  * © 2023 Brian Gormanly
  *
  */
@@ -149,7 +149,7 @@ exports.getTopicsByTerm = async ( term, userId ) => {
     
     // This query gets all the topics by searching for the term(which is $1), and the two percents are wildcard operators
     //Essentially, in both the name and description it will look for a term that matches
-    //In the future, this will need to be replaced. It's going to run slow if webapp-template becomes large,
+    //In the future, this will need to be replaced. It's going to run slow if roots becomes large,
     //And it may be more viable to move over to a pre-made federated search option with a built-in algorithim.
     const text = `
         SELECT *

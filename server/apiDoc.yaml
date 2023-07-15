@@ -1,11 +1,11 @@
 openapi: 3.0.2
 info:
-  title: webapp-template API
+  title: roots API
   version: 1.0.0
-  description: webapp-template's super cool API. You can find out more about webapp-template at [https://freewebapp-template.org](https://freewebapp-template.org)
-  termsOfService: https://freewebapp-template.org/terms/
+  description: roots's super cool API. You can find out more about roots at [https://freeroots.org](https://freeroots.org)
+  termsOfService: https://freeroots.org/terms/
   contact:
-    email: api@freewebapp-template.org
+    email: api@freeroots.org
   license:
     name: BSD 3-Clause License
     url: https://opensource.org/licenses/BSD-3-Clause
@@ -39,14 +39,14 @@ paths:
                 items:
                   $ref: "#/components/schemas/Tag"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -76,14 +76,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Tag"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "200":
           description: Updated existing record - the tag name already existed, current record used.
           content:
@@ -92,14 +92,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Tag"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -126,14 +126,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Tag"
         headers:
-          x-webapp-template-message-title:
+          x-roots-message-title:
             schema:
               type: string
-            description: Title of webapp-template API message
-          x-webapp-template-message-message:
+            description: Title of roots API message
+          x-roots-message-message:
             schema:
               type: string
-            description: Message of webapp-template API message
+            description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -161,14 +161,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Tag"
         headers:
-          x-webapp-template-message-title:
+          x-roots-message-title:
             schema:
               type: string
-            description: Title of webapp-template API message
-          x-webapp-template-message-message:
+            description: Title of roots API message
+          x-roots-message-message:
             schema:
               type: string
-            description: Message of webapp-template API message
+            description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -199,14 +199,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Tagged"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "200":
           description: Updated existing record - the tag association already existed, current record used.
           content:
@@ -215,14 +215,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Tagged"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -256,14 +256,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Tags"
         headers:
-          x-webapp-template-message-title:
+          x-roots-message-title:
             schema:
               type: string
-            description: Title of webapp-template API message
-          x-webapp-template-message-message:
+            description: Title of roots API message
+          x-roots-message-message:
             schema:
               type: string
-            description: Message of webapp-template API message
+            description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -304,14 +304,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Tag"
         headers:
-          x-webapp-template-message-title:
+          x-roots-message-title:
             schema:
               type: string
-            description: Title of webapp-template API message
-          x-webapp-template-message-message:
+            description: Title of roots API message
+          x-roots-message-message:
             schema:
               type: string
-            description: Message of webapp-template API message
+            description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -341,14 +341,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Discussions"
         headers:
-          x-webapp-template-message-title:
+          x-roots-message-title:
             schema:
               type: string
-            description: Title of webapp-template API message
-          x-webapp-template-message-message:
+            description: Title of roots API message
+          x-roots-message-message:
             schema:
               type: string
-            description: Message of webapp-template API message
+            description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -387,14 +387,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Discussions"
         headers:
-          x-webapp-template-message-title:
+          x-roots-message-title:
             schema:
               type: string
-            description: Title of webapp-template API message
-          x-webapp-template-message-message:
+            description: Title of roots API message
+          x-roots-message-message:
             schema:
               type: string
-            description: Message of webapp-template API message
+            description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -433,14 +433,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Discussions"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -469,14 +469,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Discussions"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -515,14 +515,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Discussions"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -561,14 +561,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Discussions"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -608,14 +608,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Comment"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -643,14 +643,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Comment"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -681,14 +681,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Comment"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -729,14 +729,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Comment"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -764,14 +764,14 @@ paths:
                 type: object
                 $ref: "#/components/schemas/Comment"
           headers:
-            x-webapp-template-message-title:
+            x-roots-message-title:
               schema:
                 type: string
-              description: Title of webapp-template API message
-            x-webapp-template-message-message:
+              description: Title of roots API message
+            x-roots-message-message:
               schema:
                 type: string
-              description: Message of webapp-template API message
+              description: Message of roots API message
         "400":
           $ref: "#/components/responses/BadRequest"
         "401":
@@ -782,7 +782,7 @@ paths:
           $ref: "#/components/responses/NotFoundError"
 servers:
   - url: http://localhost:1986/api/v1/auth
-  - url: http://freewebapp-template.org/api/v1/auth
+  - url: http://freeroots.org/api/v1/auth
 components:
   securitySchemes:
     basicAuth: # <-- arbitrary name for the security scheme
@@ -883,48 +883,48 @@ components:
         active: true
   responses:
     BadRequest:
-      description: The HyperText Transfer Protocol (HTTP) 400 Bad Request response status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error (for example, malformed request syntax, invalid request message framing, or deceptive request routing). See the x-webapp-template-message-title and x-webapp-template-message-detail response parameters for more detail.
+      description: The HyperText Transfer Protocol (HTTP) 400 Bad Request response status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error (for example, malformed request syntax, invalid request message framing, or deceptive request routing). See the x-roots-message-title and x-roots-message-detail response parameters for more detail.
       headers:
-        x-webapp-template-message-title:
+        x-roots-message-title:
           schema:
             type: string
-          description: Title of webapp-template API message
-        x-webapp-template-message-message:
+          description: Title of roots API message
+        x-roots-message-message:
           schema:
             type: string
-          description: Message of webapp-template API message
+          description: Message of roots API message
     UnauthorizedError:
-      description: Authentication information is missing or invalid - In basic HTTP authentication, a request contains a header field in the form of Authorization - Basic <credentials>, where credentials is the Base64 encoding of ID and password joined by a single colon. See the x-webapp-template-message-title and x-webapp-template-message-detail response parameters for more detail.
+      description: Authentication information is missing or invalid - In basic HTTP authentication, a request contains a header field in the form of Authorization - Basic <credentials>, where credentials is the Base64 encoding of ID and password joined by a single colon. See the x-roots-message-title and x-roots-message-detail response parameters for more detail.
       headers:
-        x-webapp-template-message-title:
+        x-roots-message-title:
           schema:
             type: string
-          description: Title of webapp-template API message
-        x-webapp-template-message-message:
+          description: Title of roots API message
+        x-roots-message-message:
           schema:
             type: string
-          description: Message of webapp-template API message
+          description: Message of roots API message
     ForbiddenError:
-      description: The credentials provided in the Authorization header did not authorize the user to take the requested action. See the x-webapp-template-message-title and x-webapp-template-message-detail response parameters for more detail.
+      description: The credentials provided in the Authorization header did not authorize the user to take the requested action. See the x-roots-message-title and x-roots-message-detail response parameters for more detail.
       headers:
-        x-webapp-template-message-title:
+        x-roots-message-title:
           schema:
             type: string
-          description: Title of webapp-template API message
-        x-webapp-template-message-message:
+          description: Title of roots API message
+        x-roots-message-message:
           schema:
             type: string
-          description: Message of webapp-template API message
+          description: Message of roots API message
     NotFoundError:
-      description: The requested resource was not found. Check id provided or see the x-webapp-template-message-title and x-webapp-template-message-detail response parameters for more detail.
+      description: The requested resource was not found. Check id provided or see the x-roots-message-title and x-roots-message-detail response parameters for more detail.
       headers:
-        x-webapp-template-message-title:
+        x-roots-message-title:
           schema:
             type: string
-          description: Title of webapp-template API message
-        x-webapp-template-message-message:
+          description: Title of roots API message
+        x-roots-message-message:
           schema:
             type: string
-          description: Message of webapp-template API message
+          description: Message of roots API message
 security:
   - basicAuth: []
