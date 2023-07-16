@@ -71,6 +71,11 @@ Tetradic: #414d53, #4d4153, #535041
     height: 100%
 }
 
+.bg-roots-white {
+    background-color: #f9f4f1 !important;
+    height: 100%
+}
+
 .bg-secondary-light {
     background-color: #cb738390 !important;
     height: 100%
@@ -515,7 +520,7 @@ a {
     background-color: transparent;
 }
 a:hover {
-    color: #142C76;
+    color: #916c53;
     text-decoration: none;
 }
 
