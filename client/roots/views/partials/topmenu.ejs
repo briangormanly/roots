@@ -1,7 +1,7 @@
 <div class="container navbar-interior main-content">
     <span>
         <a class="navbar-brand js-scroll-trigger" href="/">
-            <img src="/assets/img/logos/Logo-400x400.png?text=big+logo" style="height:65px" /> &nbsp;&nbsp; <span class="primary roots-font">Roots</span>
+            <img src="/assets/img/logos/Logo-400x400.png?text=big+logo" style="height:75px" alt="Roots Logo" /> <img src="/assets/img/logos/roots3.png" style="height:75px; position:relative; left:-6px;" alt="Roots" /> 
         </a>
     </span>
     
@@ -13,25 +13,27 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive" style="padding-left: 3%;">
         <ul class="nav navbar-nav ml-auto roots-font" style="display:flex;">
+            <% if( process.env.ABOUT_PAGE=='true' ) { %>
+                <li class="nav-item mx-0 mx-lg-1">
+                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/about">ABOUT YOLANTA</a>
+                </li>
+            <% } %>
 
             <% if(!locals.authUser) { %>
                 <li class="nav-item mx-0 mx-lg-1">
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/signIn">SIGN IN</a>
                 </li>
             <% } %>
-            
+            <% if(locals.authUser) { %>
             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                     href="/dashboard">DASHBOARD</a></li>
+            <% } %>
             <% if( process.env.PRODUCT_PAGE=='true' ) { %>
                 <li class="nav-item mx-0 mx-lg-1">
                     <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/codebot">Products</a>
                 </li>
             <% } %>
-            <% if( process.env.ABOUT_PAGE=='true' ) { %>
-                <li class="nav-item mx-0 mx-lg-1">
-                    <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/about">ABOUT</a>
-                </li>
-            <% } %>
+            
             <% if(locals.authUser) { %>
                 <li class="nav-item mx-0 mx-lg-1">
                     <%
