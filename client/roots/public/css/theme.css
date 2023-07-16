@@ -61,10 +61,42 @@ Tetradic: #414d53, #4d4153, #535041
 
 */
 
+.bg-primary {
+    background-color: #5f9153 !important;
+    height: 100%
+}
+
+.bg-secondary {
+    background-color: #91535f !important;
+    height: 100%
+}
+
+.bg-secondary-light {
+    background-color: #cb738390 !important;
+    height: 100%
+}
+
+.bg-tertiary {
+    background-color: #916c53 !important;
+    height: 100%
+}
+
+
+/* colors */
+.primary {
+    color: #536b91;
+}
+.complementary {
+    color: #916c53;
+}
+.complementary-light {
+    color: #78C0CA;
+}
+
 /**
 These are the colors used in the roots.  You can modify these colors to give your site a unique color scheme.
 */
-.bg-primary {
+/* .bg-primary {
     background-color: #587792 !important;
     height: 100%
 }
@@ -77,11 +109,11 @@ These are the colors used in the roots.  You can modify these colors to give you
 .bg-tertiary {
     background-color: #925868 !important;
     height: 100%
-}
+} */
 
 
 /* colors */
-.primary {
+/* .primary {
     color: #587792;
 }
 .complementary {
@@ -89,7 +121,7 @@ These are the colors used in the roots.  You can modify these colors to give you
 }
 .complementary-light {
     color: #78C0CA;
-}
+} */
 .harmony {
     color: #6d4f40;
 }
@@ -396,7 +428,6 @@ a.text-secondary:hover, a.text-secondary:focus {
     padding-bottom: 5rem;
     /* background-color: #2c3e50; */
     /* background-color: #AE7A0B; */
-    color: #fff;
 }
 
 
@@ -478,7 +509,7 @@ menu[title]:before{
 
 
 a {
-    color: #AE590B;
+    color: #392501;
     font-weight: bold;
     text-decoration: none;
     background-color: transparent;
@@ -506,15 +537,15 @@ a:hover {
     padding-bottom: 1.5rem;
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-weight: 700;
-    background: rgb(255,255,255);
-    background: linear-gradient(180deg, #171717 94%, #f39945 100%);
+    background: linear-gradient(180deg, #f4f3f3d5 94%, #d4bea9 100%);
 }
 
 #mainNav .navbar-nav {
     margin-top: 1rem;
 }
+
 #mainNav .navbar-nav li.nav-item a.nav-link {
-    color: rgb(209, 209, 209);
+    color: #392501;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
     color: #534741;
@@ -640,7 +671,7 @@ a:hover {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 18px;
-    color: #818181;
+    color: #392501;
     display: block;
     transition: 0.3s;
     
@@ -1270,6 +1301,11 @@ div.product-card a {
 
 .website-image-95 {
     width: 95%;
+    
+}
+
+.website-image-75 {
+    width: 75%;
     
 }
 

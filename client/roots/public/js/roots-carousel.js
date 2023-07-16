@@ -413,7 +413,12 @@ window.Modernizr=function( a, b, c ){
 
 $( function() {
     console.log( "roots-carousel.js" );
+
+    
     var Page = ( function() {
+
+        let handle;
+        let clickedTime = 0;
       
         var $navArrows = $( '#nav-arrows' ).hide(),
             $shadow = $( '#shadow' ).hide(),
@@ -422,6 +427,26 @@ $( function() {
               
                     $navArrows.show();
                     $shadow.show();
+                    
+                    handle = setInterval( () => {
+                        console.log( "testing" );
+                        slicebox.next();
+                    }, 2200 );
+
+                    let handle2 = setInterval( () => {
+                        console.log( clickedTime );
+                        if( clickedTime ) {
+                            console.log( "clickedTime" );
+                            if( clickedTime + 7000 > Date.now() ) {
+                                console.log( "clear" );
+                                clearInterval( handle );
+                                clickedTime = 0;
+                                handle = setInterval( () => {
+                                    slicebox.next();
+                                }, 2200 );
+                            }
+                        }
+                    }, 3000 );
               
                 },
                 orientation : 'r',
@@ -438,14 +463,16 @@ $( function() {
             
                 // add navigation events
                 $navArrows.children( ':first' ).on( 'click', function() {
-              
+                    clearInterval( handle );
+                    clickedTime = Date.now();
                     slicebox.next();
                     return false;
               
                 } );
             
                 $navArrows.children( ':last' ).on( 'click', function() {
-              
+                    clearInterval( handle );
+                    clickedTime = Date.now();
                     slicebox.previous();
                     return false;
               
@@ -454,8 +481,12 @@ $( function() {
             };
       
         return { init : init };
+
+        
       
     } )();
+
+    
     
     Page.init();
     
