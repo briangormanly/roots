@@ -395,11 +395,16 @@ a.text-secondary:hover, a.text-secondary:focus {
 }
 
 
-@media (min-width: 576px) {
+@media (min-width: 300px) {
     .masthead {
       background-position-x:5em;
       background-size: cover;
       height: 750px;
+    }
+    .website-image-with-overlap {
+        width:95%; 
+        z-index: 1; 
+        opacity: 90%;
     }
 }
 @media (min-width: 768px) {
@@ -408,6 +413,11 @@ a.text-secondary:hover, a.text-secondary:focus {
       background-size: cover;
       height: 750px;
     }
+    .website-image-with-overlap {
+        width:95%; 
+        z-index: 1; 
+        opacity: 90%;
+    }
 }
 @media (min-width: 992px) {
     .masthead {
@@ -415,8 +425,18 @@ a.text-secondary:hover, a.text-secondary:focus {
       background-size: cover;
       height: 750px;
     }
+    .website-image-with-overlap {
+        width:130%; 
+        z-index: 1; 
+        opacity: 70%;
+    }
   }
 @media (min-width: 1200px) {
+    .website-image-with-overlap {
+        width:160%; 
+        z-index: 1; 
+        opacity: 50%;
+    }
     .masthead {
       background-position-x:20rem;
       background-size: cover;
