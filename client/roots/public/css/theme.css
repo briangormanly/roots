@@ -86,6 +86,10 @@ Tetradic: #414d53, #4d4153, #535041
     height: 100%
 }
 
+.bg-roots-blue {
+    background-color: #536b91;
+}
+
 
 /* colors */
 .primary {
@@ -170,7 +174,7 @@ These are the colors used in the roots.  You can modify these colors to give you
 }
 
 .roots-text-light {
-    color: #a9c6d4;
+    color: #F6F6F6;
 }
 
 .cherry-red-color {
