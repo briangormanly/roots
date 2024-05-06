@@ -51,8 +51,8 @@ app.use( express.static( publicPath ) );
 const { v4: uuidv4 } = require( "uuid" );
 
 // set up session
-//let session = require( "express-session" );
-//const pgSession = require( "connect-pg-simple" )( session );
+let session = require( "express-session" );
+const pgSession = require( "connect-pg-simple" )( session );
 
 // database connection
 const db = require( "./db/connection" );
@@ -71,46 +71,46 @@ const swaggerApiDoc = YAML.load( "./server/apiDoc.yaml" );
 //const swaggerDocInit = swaggerJsDoc( swaggerGlobal );
 app.use( "/api-docs", swaggerUi.serve, swaggerUi.setup( swaggerApiDoc ) );
 
-// let sess = {
-//     store: new pgSession( {
-//         pool: db.pool(), // Connection pool
-//         tableName: "session", // Use another table-name than the default "session" one
-//     // Insert connect-pg-simple options here
-//     } ),
-//     genid: function ( req ) {
-//         return uuidv4(); // use UUIDs for session IDs
-//     },
-//     resave: false,
-//     saveUninitialized: true,
-//     secret: `${process.env.SESSION_SECRET}`,
-//     cookie: {
-//         maxAge: 1000 * 60 * 60 * 6, // 6 hours
-//         sameSite: "lax",
-//         secure: false,
-//     },
-// };
+let sess = {
+    store: new pgSession( {
+        pool: db.pool(), // Connection pool
+        tableName: "session", // Use another table-name than the default "session" one
+    // Insert connect-pg-simple options here
+    } ),
+    genid: function ( req ) {
+        return uuidv4(); // use UUIDs for session IDs
+    },
+    resave: false,
+    saveUninitialized: true,
+    secret: `${process.env.SESSION_SECRET}`,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 6, // 6 hours
+        sameSite: "lax",
+        secure: false,
+    },
+};
 
 if ( app.get( "env" ) === "production" ) {
     app.set( "trust proxy", 1 ); // trust first proxy
     sess.cookie.secure = true; // serve secure cookies
 }
 
-//app.use( session( sess ) );
+app.use( session( sess ) );
 
-// // check that the user is logged in, if so include user data in req for view
-// app.use( function ( req, res, next ) {
-//     // set the currentUrl so it is available in the esj
-//     res.locals.currentUrl = encodeURIComponent( req.url );
+// check that the user is logged in, if so include user data in req for view
+app.use( function ( req, res, next ) {
+    // set the currentUrl so it is available in the esj
+    res.locals.currentUrl = encodeURIComponent( req.url );
 
-//     // if authenticated set the session as a local of the esj
-//     if ( !req.session.isAuth ) {
-//         next();
-//     }
-//     else {
-//         res.locals.authUser = req.session.authUser;
-//         next();
-//     }
-// } );
+    // if authenticated set the session as a local of the esj
+    if ( !req.session.isAuth ) {
+        next();
+    }
+    else {
+        res.locals.authUser = req.session.authUser;
+        next();
+    }
+} );
 
 
 

@@ -7,12 +7,17 @@ create database rootsdb;
 create user rootsdb with encrypted password 'rootsdb';
 grant all privileges on database rootsdb to rootsdb;
 grant connect on database rootsdb to rootsdb;
-GRANT ALL ON SCHEMA public TO rootsdb;
 
 \c rootsdb rootsdb
 
+CREATE SCHEMA IF NOT EXISTS rootsdb;
+GRANT ALL ON SCHEMA public TO rootsdb;
+
+-- Set the search path to use the "agora" schema
+SET search_path = rootsdb;
+
 -- table creation
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS rootsdb.users (
     user_id uuid PRIMARY KEY,
     email VARCHAR,
     username VARCHAR,
@@ -31,13 +36,13 @@ CREATE TABLE IF NOT EXISTS users (
     create_time TIMESTAMP DEFAULT current_timestamp
 );
 
-GRANT ALL PRIVILEGES ON TABLE users TO rootsdb;
+GRANT ALL PRIVILEGES ON TABLE rootsdb.users TO rootsdb;
 --GRANT USAGE, SELECT ON SEQUENCE users_user_id_seq TO rootsdb;
 
-CREATE INDEX IF NOT EXISTS idx_users_username ON users (LOWER(username));
-CREATE INDEX IF NOT EXISTS idx_users_email ON users (LOWER(email));
+CREATE INDEX IF NOT EXISTS idx_users_username ON rootsdb.users (LOWER(username));
+CREATE INDEX IF NOT EXISTS idx_users_email ON rootsdb.users (LOWER(email));
 
-CREATE TABLE IF NOT EXISTS session (
+CREATE TABLE IF NOT EXISTS rootsdb.session (
   sid varchar NOT NULL COLLATE "default",
   sess json NOT NULL,
   expire timestamp(6) NOT NULL,
@@ -48,7 +53,7 @@ GRANT ALL PRIVILEGES ON TABLE session TO rootsdb;
 CREATE INDEX IF NOT EXISTS "IDX_session_expire" ON session ("expire");
 
 
-CREATE TABLE IF NOT EXISTS user_sessions (
+CREATE TABLE IF NOT EXISTS rootsdb.user_sessions (
     user_session_id SERIAL PRIMARY KEY,
     user_id uuid,
     create_time TIMESTAMP DEFAULT current_timestamp,
@@ -68,12 +73,12 @@ CREATE TABLE IF NOT EXISTS user_sessions (
 
 );
 
-GRANT ALL PRIVILEGES ON TABLE user_sessions TO rootsdb;
-CREATE INDEX IF NOT EXISTS idx_user_sessions_user_id ON user_sessions (user_id);
+GRANT ALL PRIVILEGES ON TABLE rootsdb.user_sessions TO rootsdb;
+CREATE INDEX IF NOT EXISTS idx_user_sessions_user_id ON rootsdb.user_sessions (user_id);
 GRANT USAGE, SELECT ON SEQUENCE user_sessions_user_session_id_seq TO rootsdb;
 
 
-CREATE TABLE IF NOT EXISTS roles (
+CREATE TABLE IF NOT EXISTS rootsdb.roles (
     role_id SERIAL PRIMARY KEY,
     role_name VARCHAR,
     role_description VARCHAR,
@@ -81,17 +86,17 @@ CREATE TABLE IF NOT EXISTS roles (
     create_time TIMESTAMP DEFAULT current_timestamp
 );
 
-GRANT ALL PRIVILEGES ON TABLE roles TO rootsdb;
+GRANT ALL PRIVILEGES ON TABLE rootsdb.roles TO rootsdb;
 GRANT USAGE, SELECT ON SEQUENCE roles_role_id_seq TO rootsdb;
 
-insert into roles (role_name, role_description, active) values ('Administrator', 'Administrator', true);
-insert into roles (role_name, role_description, active) values ('User', 'General authenticated access', true);
-insert into roles (role_name, role_description, active) values ('Founder', 'Founder membership', true);
-insert into roles (role_name, role_description, active) values ('Creator', 'Content Creator', true);
+insert into rootsdb.roles (role_name, role_description, active) values ('Administrator', 'Administrator', true);
+insert into rootsdb.roles (role_name, role_description, active) values ('User', 'General authenticated access', true);
+insert into rootsdb.roles (role_name, role_description, active) values ('Founder', 'Founder membership', true);
+insert into rootsdb.roles (role_name, role_description, active) values ('Creator', 'Content Creator', true);
 
 
 
-CREATE TABLE IF NOT EXISTS user_roles (
+CREATE TABLE IF NOT EXISTS rootsdb.user_roles (
     user_role_id SERIAL PRIMARY KEY,
     user_id uuid,
     role_id INTEGER,
@@ -99,7 +104,7 @@ CREATE TABLE IF NOT EXISTS user_roles (
     create_time TIMESTAMP DEFAULT current_timestamp,
     end_time TIMESTAMP
 );
-GRANT ALL PRIVILEGES ON TABLE user_roles TO rootsdb;
+GRANT ALL PRIVILEGES ON TABLE rootsdb.user_roles TO rootsdb;
 GRANT USAGE, SELECT ON SEQUENCE user_roles_user_role_id_seq TO rootsdb;
 
 CREATE INDEX IF NOT EXISTS idx_user_roles_user_id ON user_roles (user_id);
@@ -112,20 +117,20 @@ CREATE INDEX IF NOT EXISTS idx_user_roles_role_id ON user_roles (role_id);
 
 CREATE TYPE visibility AS ENUM ('private', 'public');
 
-CREATE TABLE IF NOT EXISTS tags (
+CREATE TABLE IF NOT EXISTS rootsdb.tags (
     tag_id SERIAL PRIMARY KEY,
     tag VARCHAR UNIQUE,
     last_used TIMESTAMP,
     owned_by uuid
 );
 
-GRANT ALL PRIVILEGES ON TABLE tags TO rootsdb;
+GRANT ALL PRIVILEGES ON TABLE rootsdb.tags TO rootsdb;
 GRANT USAGE, SELECT ON SEQUENCE tags_tag_id_seq TO rootsdb;
-CREATE INDEX IF NOT EXISTS idx_tags_tag ON tags (tag);
+CREATE INDEX IF NOT EXISTS idx_tags_tag ON rootsdb.tags (tag);
 
 CREATE TYPE tag_entity_types AS ENUM ('unknown', 'workspace', 'topic', 'resource', 'user');
 
-CREATE TABLE IF NOT EXISTS tag_associations (
+CREATE TABLE IF NOT EXISTS rootsdb.tag_associations (
     tag_association_id SERIAL PRIMARY KEY,
     tag_id INTEGER, -- fk to tag
     entity_type tag_entity_types, --  1-goal, 2-topic, 3-resource, 
@@ -144,7 +149,7 @@ CREATE TABLE IF NOT EXISTS tag_associations (
 
 CREATE TYPE discussion_parents AS ENUM ('workspace', 'topic');
 
-CREATE TABLE IF NOT EXISTS discussions (
+CREATE TABLE IF NOT EXISTS rootsdb.discussions (
     parent_id uuid,
     parent_type discussion_parents,
     user_id uuid,
@@ -154,7 +159,7 @@ CREATE TABLE IF NOT EXISTS discussions (
 
 GRANT ALL PRIVILEGES ON TABLE discussions TO rootsdb;
 
-CREATE TABLE IF NOT EXISTS discussion_comments (
+CREATE TABLE IF NOT EXISTS rootsdb.discussion_comments (
     discussion_comment_id SERIAL PRIMARY KEY,
     parent_id INTEGER, 
     parent_type discussion_parents,
@@ -164,15 +169,15 @@ CREATE TABLE IF NOT EXISTS discussion_comments (
     user_id uuid
 );
 
-GRANT ALL PRIVILEGES ON TABLE discussion_comments TO rootsdb;
+GRANT ALL PRIVILEGES ON TABLE rootsdb.discussion_comments TO rootsdb;
 
 
-CREATE TABLE IF NOT EXISTS discussion_comment_ratings (
+CREATE TABLE IF NOT EXISTS rootsdb.discussion_comment_ratings (
     discussion_comment_id INTEGER,
     user_id uuid,
     rating BOOLEAN,
     CONSTRAINT user_rating PRIMARY KEY (discussion_comment_id, user_id)
 );
 
-GRANT ALL PRIVILEGES ON TABLE discussion_comment_ratings TO rootsdb;
+GRANT ALL PRIVILEGES ON TABLE rootsdb.discussion_comment_ratings TO rootsdb;
 
