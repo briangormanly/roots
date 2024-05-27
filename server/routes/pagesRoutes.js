@@ -1,12 +1,12 @@
 /**
  * roots - Your webapp
- * © 2023 Brian Gormanly
+ * © 2023-2024 Brian Gormanly
  *
  */
 
 var express = require( 'express' );
 var router = express.Router( );
-
+const galleryRouter = require( './gallery' );
 
 
 router.route( '/' )
@@ -26,6 +26,9 @@ router.route( '/privacy' )
         res.render( './website/privacy' );
     }
     );
+
+// Use the gallery router
+router.use( '/gallery', galleryRouter );
 
 router.route( '/tos' )
     .get( ( req, res ) => {
