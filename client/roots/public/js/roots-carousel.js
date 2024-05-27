@@ -431,7 +431,7 @@ $( function() {
                     handle = setInterval( () => {
                         console.log( "testing" );
                         slicebox.next();
-                    }, 2200 );
+                    }, 3500 );
 
                     let handle2 = setInterval( () => {
                         console.log( clickedTime );
@@ -443,7 +443,7 @@ $( function() {
                                 clickedTime = 0;
                                 handle = setInterval( () => {
                                     slicebox.next();
-                                }, 2200 );
+                                }, 3500 );
                             }
                         }
                     }, 3000 );
