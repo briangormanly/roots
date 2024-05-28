@@ -7,6 +7,7 @@
 var express = require( 'express' );
 var router = express.Router( );
 const galleryRouter = require( './gallery' );
+const videoRouter = require( './video' );
 
 
 router.route( '/' )
@@ -27,8 +28,11 @@ router.route( '/privacy' )
     }
     );
 
-// Use the gallery router
+// gallery router
 router.use( '/gallery', galleryRouter );
+
+// video page router
+router.use( '/videos', videoRouter );
 
 router.route( '/tos' )
     .get( ( req, res ) => {
