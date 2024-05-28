@@ -437,9 +437,9 @@ a.text-secondary:hover, a.text-secondary:focus {
   }
 @media (min-width: 1200px) {
     .website-image-with-overlap {
-        width:160%; 
+        width:130%; 
         z-index: 1; 
-        opacity: 50%;
+        opacity: 40%;
     }
     .masthead {
       background-position-x:20rem;
@@ -562,8 +562,6 @@ a:hover {
   
 /* navigation */
 #mainNav {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-weight: 700;
     background: linear-gradient(180deg, #f4f3f3d5 94%, #d4bea9 100%);
@@ -591,9 +589,6 @@ a:hover {
 }
 @media (min-width: 992px) {
     #mainNav {
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
-      padding-left:2rem;
       transition: padding-top 0.3s, padding-bottom 0.3s;
     }
     #mainNav .navbar-brand {
@@ -676,7 +671,7 @@ a:hover {
 
 /* padding under the top bar */
 .page-section-top-padded {
-    padding-top: 8rem;
+    padding-top: 10rem;
 }
   
 
@@ -903,7 +898,7 @@ a:hover {
     position: absolute;
     top: 5px;
     right: 15px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #0e2431;
 }
 
@@ -1277,6 +1272,29 @@ div.product-card a {
     font-size: 11pt;
     float: right;
     width: 30%;
+}
+
+.main-text-large {
+    display: block;
+    padding-top: 1.5rem;
+    font-weight: bold;
+    font-size: 18pt;
+    float: left;
+    width: 100%;
+    text-align: justify;
+  text-align-last: left;
+
+}
+
+.main-text {
+    display: block;
+    text-align: justify;
+  text-align-last: left;
+    padding-top: 1.5rem;
+    font-size: 14pt;
+    float: left;
+    width: 100%;
+
 }
 
 /* Logout / Sign out */
